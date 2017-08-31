@@ -114,7 +114,7 @@ func onMessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 		for _, vs := range g.VoiceStates {
 			if vs.UserID == m.Author.ID {
-				player.Play(g.ID, c.ID)
+				player.Play(g.ID, vs.ChannelID)
 			}
 		}
 

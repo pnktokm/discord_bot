@@ -16,7 +16,7 @@ type Player struct {
 }
 
 var (
-	stream *dca.StreamingSession
+	stream *dca.StreamingSession = nil
 )
 
 func (p *Player) Play(guildId, channelId string) {
@@ -35,15 +35,13 @@ func (p *Player) Play(guildId, channelId string) {
 }
 
 func (p *Player) Pause() {
-	//TODO: invalid request
-	if (!stream.Paused()) {
+	if (stream != nil && !stream.Paused()) {
 		stream.SetPaused(true)
 	}
 }
 
 func (p *Player) Resume() {
-	//TODO: invalid request
-	if (stream.Paused()) {
+	if (stream != nil && stream.Paused()) {
 		stream.SetPaused(false)
 	}
 }
